@@ -1,0 +1,49 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="fs-1 pb-3">Acerca De Mi</h2>
+                    <p class="fs-5 fw-light">Mi nombre es Ignacio Sardella, me adentre en el mundo de la programacion a mediados de 2022 y por ahora trato de seguir aprendiendo para cada vez disponer de mejores herramientas a la hora de programar</p>
+                    <a class="cta-btn text-decoration-none" href="https://www.linkedin.com/in/ignacio-sardella/" target="_blank">►► Mi linkedin ◄◄</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="row gy-4 justify-content-center">
+        <div class="col-lg-4">
+            <img src="{% static 'aplication/assets/img/aboutme.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 content">
+            <h2 class="text-primary" style="font-size: 1.8rem !important;">Front-End Developer - Python Developer</h2>
+            <p class="fst-italic py-3">
+                Entre mayo y diciembre del 2022 realice mi carrera como desarrollador Front-End en la academia Coderhouse, dividida en 3 cursos (Desarrollo Web, JavaScript y React.js)
+            </p>
+            <div class="row">
+            <div class="d-flex">
+                <ul class="mx-auto text-start" style="list-style: none;">
+                <li><i class="fa-regular fa-star" style="color: #afb0b1;"></i> <strong>Email:</strong> <span>ignaciosardella999@gmail.com</span></li>
+                <li><i class="fa-regular fa-star" style="color: #afb0b1;"></i> <strong>Linkedin:</strong> <span>www.linkedin.com/in/ignacio-sardella/</span></li>
+                <li><i class="fa-regular fa-star" style="color: #afb0b1;"></i> <strong>Edad:</strong> <span>20 Años</span></li>
+                </ul>
+            </div>
+            </div>
+            <p class="py-3 fst-italic text-start">
+                En esta aplicación lo que se busca mas alla del concepto y lo estetico es mostrar mis habilidades para el uso de Django, CRUDS, Register, Login, etc. <br>
+                Si bien el concepto no escapa de lo que fuimos viendo en las clases, mi idea en algun momento internamente muto hacia varios lados, pense en hacer una aplicacion del estilo "sistema de facturacion", con modelos como presupuestos, cobranzas , etc. Por una confusion mia en cuanto a tiempos de entrega no llegue a darle forma. Sin embargo terminado el curso y ya sin presiones quiero arrancar un proyecto personal de ese estilo para mi portfolio.
+            </p>
+            <p class="py-3 fst-italic text-end">
+                Me quedo muy contento con lo que me dejo el curso, una herramienta muy poderosa y una comunidad excelente siempre dispuesta a dar una mano, un abrazo grande Norman!
+            </p>
+        </div>
+    </div>
+{% endblock content %}
+

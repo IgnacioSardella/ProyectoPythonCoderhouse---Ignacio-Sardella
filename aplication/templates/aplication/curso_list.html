@@ -1,0 +1,53 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    Pagina de Cursos
+{% endblock title %}
+
+
+{% block content %}
+    <div class="mx-auto container p-2">
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-success" href="{% url 'create_curso' %}#{id-dinamico}"><b><i class="fa fa-plus"></i></b></a>    
+            <h2 class="m-0">Cursos</h2>
+            <a class="btn btn-success" href="{% url 'buscar_curso' %}#{id-dinamico}"><b><i class="fa fa-search"></i></b></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row hidden-md-up">
+            <!-- Aquí comienza el ciclo para recorrer los objetos del modelo -->
+            {% for c in curso_list %}
+                <div class="col-md-4 my-3">
+                    <div class="card">
+                        <div class="card-block text-dark text-start p-4">
+                            <h5 class="card-title py-2">{{ c.nombre }}</h5>
+                            <p class="card-text">Comision: {{ c.comision }}</p>
+                            <p class="card-subtitle text-muted">ID: {{ c.id }}</p>
+                            <div class="row">
+                                <a class="col-md-6 mt-auto" href="#">Ver detalles</a>
+                                <div class="col-md-6">
+                                    <a 
+                                    href="{% url 'update_curso' c.id %}"
+                                    class="btn btn-info mt-auto"
+                                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                    </a>
+                                    <a 
+                                    href="{% url 'delete_curso' c.id %}"
+                                    class="btn btn-danger mt-auto mx-3"
+                                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- Aquí termina el ciclo -->
+        </div>
+    </div>
+        
+{% endblock content %}
+

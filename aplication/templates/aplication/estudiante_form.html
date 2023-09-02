@@ -1,0 +1,26 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+{% block title %}
+    <div class="container">
+        <h2 class="text-center">Agregar Estudiante</h2>
+    </div>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container d-flex justify-content-center">
+        <form class="row" action="" method="post">
+            {% csrf_token %}
+            <table class="text-center">
+                {{ form.as_table }}
+            </table>
+            <div class="p-2">
+                <input class="btn btn-success w-100" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <div class="text-center">
+        <a class="navbar-brand" href="{% url 'estudiantes' %}#{id-dinamico}"><b>Volver a "Estudiantes"</b></a>
+    </div>
+{% endblock content %}

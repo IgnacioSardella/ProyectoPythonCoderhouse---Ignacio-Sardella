@@ -1,0 +1,28 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    <div class="container">
+        <h2 class="text-center">Iniciar Sesion</h2>
+    </div>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container d-flex justify-content-center">
+        <form class="row" action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div class="p-2">
+                <input class="btn btn-success w-100" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <div class="text-center mt-4">
+        <a class="navbar-brand" href="{% url 'home' %}"><b>Volver al Inicio</b></a>
+    </div>
+{% endblock content %}
+

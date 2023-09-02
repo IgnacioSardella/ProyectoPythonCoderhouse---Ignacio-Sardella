@@ -1,0 +1,17 @@
+{% extends 'aplication/woheader.html' %} 
+{% load static %} 
+{% block titulo %}Estudiantes{% endblock titulo %} 
+
+{% block content %}
+    
+    <form action="" method="POST">
+        {% csrf_token %}   
+        <div class="text-center">     
+            <h3>¿ Esta seguro de eliminar el estudiante ? <p class="p-3" style="color:red">{{ object }}</p> </h3>
+        </div>
+        <div class="text-center mt-5">
+            <input type="submit" class="btn btn-primary btn-block mx-2" value="Confirmar">
+            <a class="btn btn-primary btn-block mx-2" href="{% url 'estudiantes' %}#{id-dinamico}">Cancelar</a>
+        </div>
+    </form>
+{% endblock content %}

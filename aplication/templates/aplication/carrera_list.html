@@ -1,0 +1,169 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    Pagina de Carreras
+{% endblock title %}
+
+
+{% block content %}
+    <div class="mx-auto container p-2">
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-success" href="{% url 'create_carrera' %}#{id-dinamico}"><b><i class="fa fa-plus"></i></b></a>    
+            <h2 class="m-0">Carreras</h2>
+            <a class="btn btn-success" href="{% url 'buscar_carrera' %}#{id-dinamico}"><b><i class="fa fa-search"></i></b></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row hidden-md-up">
+            <!-- Aquí comienza el ciclo para recorrer los objetos del modelo -->
+            {% for c in carrera_list %}
+            
+            {% if carrera_list|length > 2 %}
+                <div class="col-md-4 my-3">
+                    <div class="card">
+                        <div class="card-block text-dark text-start p-4">
+                            <div class="row">
+                                <h5 class="col-md-7 my-auto card-title py-2">{{ c.nombre }}</h5>
+                                <p class="col p-0 my-auto card-subtitle text-muted text-end">Duracion: {{ c.duracion }}
+                                {% if c.duracion > 1 %}
+                                    años
+                                    {% else %}
+                                    año
+                                {% endif %}
+                                    </p>
+                            </div>
+                            <p class="card-text">Comision: {{ c.comision }}</p>
+                            <p class="card-subtitle text-muted">ID: {{ c.id }}</p>
+                            <div class="row">
+                                <a class="col-md-6 mt-auto" href="#">Ver detalles</a>
+                                <div class="col-md-4 offset-md-1 d-flex">
+                                    <a 
+                                    href="{% url 'update_carrera' c.id %}"
+                                    class="btn btn-info mt-auto"
+                                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                    </a>
+                                    <a 
+                                    href="{% url 'delete_carrera' c.id %}"
+                                    class="btn btn-danger mt-auto mx-3"
+                                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% elif carrera_list|length == 2 %}
+                    <div class="col-md-6 my-3">
+                        <div class="card">
+                            <div class="card-block text-dark text-start p-4">
+                                <div class="row">
+                                    <h5 class="col-md-7 my-auto card-title py-2">{{ c.nombre }}</h5>
+                                    <p class="col p-0 my-auto card-subtitle text-muted text-end">Duracion: {{ c.duracion }}
+                                    {% if c.duracion > 1 %}
+                                        años
+                                        {% else %}
+                                        año
+                                    {% endif %}
+                                        </p>
+                                </div>
+                                <p class="card-text">Comision: {{ c.comision }}</p>
+                                <p class="card-subtitle text-muted">ID: {{ c.id }}</p>
+                                <div class="row">
+                                    <a class="col-md-6 mt-auto" href="#">Ver detalles</a>
+                                    <div class="col-md-4 offset-md-1 d-flex">
+                                        <a 
+                                        href="{% url 'update_carrera' c.id %}"
+                                        class="btn btn-info mt-auto"
+                                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                        </a>
+                                        <a 
+                                        href="{% url 'delete_carrera' c.id %}"
+                                        class="btn btn-danger mt-auto mx-3"
+                                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-12 my-3">
+                        <div class="card">
+                            <div class="card-block text-dark text-start p-4">
+                                <div class="row">
+                                    <h5 class="col-md-7 my-auto card-title py-2">{{ c.nombre }}</h5>
+                                    <p class="col p-0 my-auto card-subtitle text-muted text-end">Duracion: {{ c.duracion }}
+                                    {% if c.duracion > 1 %}
+                                        años
+                                        {% else %}
+                                        año
+                                    {% endif %}
+                                        </p>
+                                </div>
+                                <p class="card-text">Comision: {{ c.comision }}</p>
+                                <p class="card-subtitle text-muted">ID: {{ c.id }}</p>
+                                <div class="row">
+                                    <a class="col-md-6 mt-auto" href="#">Ver detalles</a>
+                                    <div class="col-md-4 offset-md-1 d-flex">
+                                        <a 
+                                        href="{% url 'update_carrera' c.id %}"
+                                        class="btn btn-info mt-auto"
+                                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                        </a>
+                                        <a 
+                                        href="{% url 'delete_carrera' c.id %}"
+                                        class="btn btn-danger mt-auto mx-3"
+                                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% endif %}
+                
+                
+            {% endfor %}
+            <!-- Aquí termina el ciclo -->
+        </div>
+    </div>
+
+    <!-- <table class="table table-striped bg-light mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Carrera</th>
+                <th>Duracion (en años)</th>
+                <th>Comision</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in carrera_list %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.duracion }}</td>
+                <td>{{ c.comision }}</td>
+                <td>
+                    <a 
+                        href="{% url 'update_carrera' c.id %}"
+                        class="btn btn-info mx-1"
+                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+
+                    <a 
+                        href="{% url 'delete_carrera' c.id %}"
+                        class="btn btn-danger mx-1"
+                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table> -->
+        
+{% endblock content %}

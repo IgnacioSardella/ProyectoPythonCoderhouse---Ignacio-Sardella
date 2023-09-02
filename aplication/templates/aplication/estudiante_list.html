@@ -1,0 +1,54 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    Pagina de Estudiantes
+{% endblock title %}
+
+
+{% block content %}
+    <div class="mx-auto container p-2">
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-success" href="{% url 'create_estudiante' %}#{id-dinamico}"><b><i class="fa fa-plus"></i></b></a>    
+            <h2 class="m-0">Estudiantes</h2>
+            <a class="btn btn-success" href="{% url 'buscar_estudiante' %}#{id-dinamico}"><b><i class="fa fa-search"></i></b></a>
+        </div>
+    </div>
+
+    <table class="table table-striped bg-light mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for e in estudiante_list %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.nombre }}</td>
+                <td>{{ e.apellido }}</td>
+                <td>{{ e.email }}</td>
+                <td class="text-center">
+                    <a 
+                        href="{% url 'update_estudiante' e.id %}"
+                        class="btn btn-info mx-1"
+                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+
+                    <a 
+                        href="{% url 'delete_estudiante' e.id %}"
+                        class="btn btn-danger mx-1"
+                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+        
+{% endblock content %}

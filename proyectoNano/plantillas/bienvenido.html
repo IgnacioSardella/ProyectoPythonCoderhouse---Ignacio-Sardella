@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas Django</title>
+</head>
+<body>
+    <h1 style="color: blue">Messi te amo</h1>
+
+    <h3>Notas:</h3>
+    
+    {% for nota in notas %}
+        
+        {% if nota >= 7 %}
+            <p style="color: green">La nota de {{nombre}} es {{nota}}</p>
+            {% else %}
+            <p style="color: red">La nota de {{nombre}} es {{nota}}</p>            
+        {% endif %}
+    {% endfor %}
+        
+</body>
+</html>

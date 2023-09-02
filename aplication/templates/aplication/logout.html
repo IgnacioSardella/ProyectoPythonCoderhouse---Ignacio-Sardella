@@ -1,0 +1,17 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    <div class="container">
+        <h2 class="text-center p-2">Logout</h2>
+    </div>
+{% endblock title %}
+
+
+{% block content %}
+    <h4 style="color: red;" class="text-center p-5">Usted se ha deslogueado exitosamente!</h4>
+    <div class="text-center mt-5">
+        <a class="navbar-brand p-2" href="{% url 'home' %}"><b>Volver al Inicio</b></a>
+    </div>
+{% endblock content %}

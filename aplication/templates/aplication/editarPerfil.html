@@ -1,0 +1,53 @@
+{% extends 'aplication/woheader.html' %}
+{% load static %}
+
+
+{% block title %}
+    <div class="container">
+        <h2 class="text-center">Mi Perfil</h2>
+    </div>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-xl-1 col-xl-3 mb-5 mb-xl-0">
+                <div class="card h-100 bg-secondary">
+                    <div class="card-body">
+                            <div class="mt-xl-3">
+                                <div class=" mb-3">
+                                    <img class="border border-success rounded-circle p-2" src="{{ request.session.avatar }}" height="175 px" width="175 px" alt="avatar">
+                                    <a class="btn" style="position: absolute;" href="{% url 'agregar_avatar' %}"><i class="fa-solid fa-user-plus" style="color: white;"></i></a>
+                                </div>
+                                <h5 class="user-name">{{user.username}}</h5>
+                                <div class="border-top border-dark mx-5">
+                                    <i class="--fa-primary-color fas fa-star"></i>
+                                    <i class="--fa-primary-color fas fa-star"></i>
+                                    <i class="--fa-primary-color fas fa-star"></i>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 bg-secondary card">
+                <div class="p-2">
+                    <h3 class="text-center">Editar Perfil</h3>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <form class="row mx-3" action="" method="post">
+                        {% csrf_token %}
+                        <table class="text-start">
+                            {{ form.as_table }}
+                        </table>
+                        <div class="p-2 d-flex justify-content-evenly">
+                            <input class="btn btn-success w-25" type="submit" value="Guardar">
+                            <a class="navbar-brand btn btn-danger w-25" href="{% url 'home' %}">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+{% endblock content %}
