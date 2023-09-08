@@ -43,7 +43,7 @@ def login_request(request):
                 try:
                     avatar = Avatar.objects.get(user=request.user.id).imagen.url
                 except:
-                    avatar = "/media/avatares/imagen-por-defecto.jpg"
+                    avatar = "/media/avatares/default-avatar.png"
                 finally:
                     request.session["avatar"] = avatar
                 
